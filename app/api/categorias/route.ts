@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || '';
+const API_TOKEN = process.env.NEXT_PUBLIC_TOKEN || '';
 
 export async function GET() {
   try {
@@ -34,6 +35,7 @@ export async function POST(request: NextRequest) {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
+        'Authorization': `Bearer ${API_TOKEN}`,
       },
       body: JSON.stringify(body),
     });

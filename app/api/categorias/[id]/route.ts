@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
 
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || '';
+const API_TOKEN = process.env.NEXT_PUBLIC_TOKEN || '';
+
 
 export async function GET(
   request: NextRequest,
@@ -40,6 +42,7 @@ export async function PUT(
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
+        'Authorization': `Bearer ${API_TOKEN}`,
       },
       body: JSON.stringify(body),
     });
@@ -68,6 +71,7 @@ export async function DELETE(
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',
+        'Authorization': `Bearer ${API_TOKEN}`,
       },
     });
 
